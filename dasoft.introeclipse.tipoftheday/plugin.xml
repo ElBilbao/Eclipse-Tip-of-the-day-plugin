@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="dasoft.introeclipse.tipoftheday.tipsource" name="Source of tips" schema="schema/dasoft.introeclipse.tipoftheday.tipsource.exsd"/>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="dasoft.introeclipse.tipoftheday.commands.category"
+            name="Tip of the Day">
+      </category>
+      <command
+            categoryId="dasoft.introeclipse.tipoftheday.commands.category"
+            id="dasoft.introeclipse.tipoftheday.commands.tips"
+            name="Tip of the Day">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="dasoft.introeclipse.tipoftheday.handlers.TipCommandHandler"
+            commandId="dasoft.introeclipse.tipoftheday.commands.tips">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="dasoft.introeclipse.tipoftheday.commands.tips"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+M2+D">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="dasoft.introeclipse.tipoftheday.menus.tips"
+               label="Tip of the Day"
+               mnemonic="M">
+            <command
+                  commandId="dasoft.introeclipse.tipoftheday.commands.tips"
+                  id="dasoft.introeclipse.tipoftheday.menus.tips"
+                  mnemonic="S">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="dasoft.introeclipse.tipoftheday.toolbars.tips">
+            <command
+                  commandId="dasoft.introeclipse.tipoftheday.commands.tips"
+                  icon="icons/sample.png"
+                  id="dasoft.introeclipse.tipoftheday.toolbars.tips"
+                  tooltip="Tip of the day">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>
